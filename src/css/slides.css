@@ -1,0 +1,146 @@
+/* 슬라이드 컨테이너 */
+.slides-container {
+    margin-top: 80px;
+    height: calc(100vh - 80px);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 개별 슬라이드 */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all var(--transition-slow);
+    padding: var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide.prev {
+    transform: translateX(-100px);
+}
+
+/* 슬라이드 콘텐츠 */
+.slide-content {
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 타이틀 슬라이드 */
+.title-slide {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.main-title {
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.sub-title {
+    font-size: 1.8rem;
+    color: var(--gray-text);
+    font-weight: 400;
+    margin-bottom: var(--spacing-md);
+}
+
+.title-divider {
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* 주요 통계 */
+.key-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-xl);
+    background: rgba(26, 29, 36, 0.5);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.stat-item {
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--gray-text);
+    font-weight: 500;
+}
+
+/* 프레젠테이션 정보 */
+.presentation-info {
+    margin-top: var(--spacing-xl);
+    color: var(--gray-text);
+}
+
+.presentation-info p {
+    margin-bottom: var(--spacing-xs);
+}
+
+.date {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+/* 일반 슬라이드 제목 */
+.slide-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--light-text);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    position: relative;
+}
+
+.slide-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--primary-blue);
+    border-radius: 2px;
+}
