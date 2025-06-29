@@ -132,16 +132,36 @@ function goToSlide(slideNumber) {
 // UI 업데이트 함수들
 function updateSlideDisplay() {
     slides.forEach((slide, index) => {
+        // 모든 클래스 제거
         slide.classList.remove('active', 'prev');
         
+        // 모든 슬라이드 초기 숨김 상태로 설정
+        slide.style.opacity = '0';
+        slide.style.visibility = 'hidden';
+        slide.style.pointerEvents = 'none';
+        slide.style.zIndex = '1';
+        
         if (index + 1 === currentSlide) {
+            // 현재 슬라이드만 표시
             slide.classList.add('active');
+            slide.style.opacity = '1';
+            slide.style.visibility = 'visible';
+            slide.style.pointerEvents = 'auto';
+            slide.style.zIndex = '10';
+            slide.style.transform = 'translateX(0)';
         } else if (index + 1 < currentSlide) {
+            // 이전 슬라이드
             slide.classList.add('prev');
+            slide.style.transform = 'translateX(-100px)';
+        } else {
+            // 다음 슬라이드
+            slide.style.transform = 'translateX(100px)';
         }
     });
     
-    slideCounter.textContent = `${currentSlide} / ${totalSlides}`;
+    if (slideCounter) {
+        slideCounter.textContent = `${currentSlide} / ${totalSlides}`;
+    }
 }
 
 function updateProgress() {

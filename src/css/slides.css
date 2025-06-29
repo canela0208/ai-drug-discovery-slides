@@ -11,7 +11,7 @@
     overflow: hidden;
 }
 
-/* 개별 슬라이드 */
+/* 개별 슬라이드 - 기본적으로 모두 숨김 */
 .slide {
     position: absolute;
     top: 0;
@@ -19,6 +19,7 @@
     width: 100%;
     height: 100%;
     opacity: 0;
+    visibility: hidden;
     transform: translateX(100px);
     transition: all var(--transition-slow);
     padding: var(--space-lg);
@@ -26,17 +27,34 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
+    pointer-events: none;
 }
 
+/* 활성 슬라이드만 표시 */
 .slide.active {
     opacity: 1;
+    visibility: visible;
     transform: translateX(0);
-    z-index: 2;
+    z-index: 10;
+    pointer-events: auto;
 }
 
+/* 이전 슬라이드 (숨김) */
 .slide.prev {
+    opacity: 0;
+    visibility: hidden;
     transform: translateX(-100px);
-    z-index: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* 첫 번째 슬라이드는 초기에 활성화 */
+.slide:first-child {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    z-index: 10;
+    pointer-events: auto;
 }
 
 /* 슬라이드 콘텐츠 */
