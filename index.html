@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 신약 타겟 발굴 - 현황과 전망</title>
+    
+    <!-- Pretendard Font -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" rel="stylesheet">
+    
+    <!-- New Design System CSS -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slides.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 네비게이션 -->
+    <nav class="slide-nav">
+        <div class="nav-controls">
+            <button id="prevBtn" class="nav-btn interactive-element"><i class="fas fa-chevron-left"></i></button>
+            <span id="slideCounter" class="slide-counter">1 / 10</span>
+            <button id="nextBtn" class="nav-btn interactive-element"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="nav-progress">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+    </nav>
+
+    <!-- 슬라이드 컨테이너 -->
+    <main class="slides-container">
+        
+        <!-- 슬라이드 1: 타이틀 -->
+        <section class="slide" id="slide-1">
+            <div class="slide-content title-slide">
+                <div class="title-header">
+                    <h1 class="h1-title">AI 신약 타겟 발굴</h1>
+                    <h2 class="h3-subtitle">혁신적 기술과 미래 전망</h2>
+                    <div class="title-divider"></div>
+                </div>
+                
+                <div class="key-stats glass-card">
+                    <div class="stat-item interactive-element">
+                        <div class="stat-number emphasis-text">91B</div>
+                        <div class="stat-label body-text">USD 시장 규모 (2030년)</div>
+                    </div>
+                    <div class="stat-item interactive-element">
+                        <div class="stat-number emphasis-text">29.7%</div>
+                        <div class="stat-label body-text">연평균 성장률</div>
+                    </div>
+                    <div class="stat-item interactive-element">
+                        <div class="stat-number emphasis-text">80%+</div>
+                        <div class="stat-label body-text">AI 신약 임상 1상 성공률</div>
+                    </div>
+                </div>
+                
+                <div class="presentation-info">
+                    <p class="body-text">2024-2025 종합 분석 보고서</p>
+                    <p class="date">2025년 6월 29일</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 슬라이드 2: 시장 현황 -->
+        <section class="slide" id="slide-2">
+            <div class="slide-content">
+                <h2 class="slide-title h2-title">시장 현황과 성장 전망</h2>
+                <div class="content-grid">
+                    <div class="market-overview glass-card interactive-element">
+                        <h3 class="h3-subtitle">시장 규모 성장</h3>
+                        <div class="market-chart">
+                            <div class="year-data">
+                                <span class="year body-text">2024</span>
+                                <div class="bar-container">
+                                    <div class="bar gradient-box" style="width: 20%"></div>
+                                    <span class="value emphasis-text">18.6B USD</span>
+                                </div>
+                            </div>
+                            <div class="year-data">
+                                <span class="year body-text">2030</span>
+                                <div class="bar-container">
+                                    <div class="bar gradient-box" style="width: 100%"></div>
+                                    <span class="value emphasis-text">91B USD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 슬라이드 3: 주요 AI 기술과 방법론 -->
+        <section class="slide" id="slide-3">
+            <div class="slide-content">
+                <h2 class="slide-title h2-title">주요 AI 기술과 방법론</h2>
+                <div class="technology-grid">
+                    <div class="tech-category">
+                        <h3 class="h3-subtitle">핵심 AI 기술</h3>
+                        <div class="tech-items">
+                            <div class="tech-item glass-card interactive-element">
+                                <div class="tech-icon">🧠</div>
+                                <div class="tech-info">
+                                    <h4>그래프 신경망 (GNN)</h4>
+                                    <div class="tech-stats">
+                                        <span class="adoption">채택률: 35%</span>
+                                        <span class="accuracy">정확도: 78%</span>
+                                    </div>
+                                    <p class="body-text">분자 그래프 학습과 단백질 상호작용 예측</p>
+                                </div>
+                            </div>
+                            <div class="tech-item glass-card interactive-element">
+                                <div class="tech-icon">🔄</div>
+                                <div class="tech-info">
+                                    <h4>트랜스포머</h4>
+                                    <div class="tech-stats">
+                                        <span class="adoption">채택률: 28%</span>
+                                        <span class="accuracy">정확도: 82%</span>
+                                    </div>
+                                    <p class="body-text">SMILES 및 단백질 서열 분석</p>
+                                </div>
+                            </div>
+                            <div class="tech-item glass-card interactive-element">
+                                <div class="tech-icon">🕸️</div>
+                                <div class="tech-info">
+                                    <h4>지식 그래프</h4>
+                                    <div class="tech-stats">
+                                        <span class="adoption">채택률: 23%</span>
+                                        <span class="accuracy">정확도: 75%</span>
+                                    </div>
+                                    <p class="body-text">50만+ 엔티티 통합 분석</p>
+                                </div>
+                            </div>
+                            <div class="tech-item glass-card interactive-element">
+                                <div class="tech-icon">🧬</div>
+                                <div class="tech-info">
+                                    <h4>멀티오믹스 통합</h4>
+                                    <div class="tech-stats">
+                                        <span class="adoption">채택률: 14%</span>
+                                        <span class="accuracy">정확도: 85%</span>
+                                    </div>
+                                    <p class="body-text">유전체, 전사체, 단백체 융합</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 슬라이드 4: 성공 사례 - Insilico Medicine -->
+        <section class="slide" id="slide-4">
+            <div class="slide-content">
+                <h2 class="slide-title h2-title">성공 사례: Insilico Medicine</h2>
+                <div class="success-story">
+                    <div class="company-intro glass-card">
+                        <div class="company-logo">🏢</div>
+                        <div class="company-info">
+                            <h3 class="h3-subtitle">Insilico Medicine</h3>
+                            <p class="body-text">549M USD 펀딩 | 31개 프로그램 진행 중</p>
+                        </div>
+                    </div>
+                    <div class="drug-showcase glass-card">
+                        <div class="drug-info">
+                            <h3>ISM001-055 (Rentosertib)</h3>
+                            <div class="indication">
+                                <span class="label body-text">적응증:</span>
+                                <span class="value">특발성 폐섬유증 (IPF)</span>
+                            </div>
+                        </div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2021</div>
+                                <div class="timeline-event body-text">AI 타겟 발굴</div>
+                            </div>
+                            <div class="timeline-item highlight">
+                                <div class="timeline-date">2024.11</div>
+                                <div class="timeline-event body-text">2상 성공</div>
+                            </div>
+                        </div>
+                        <div class="key-achievement glass-card">
+                            <div class="achievement-stat">
+                                <div class="stat-number emphasis-text">30개월</div>
+                                <div class="stat-label body-text">타겟 발굴 → 임상 1상</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 슬라이드 5: 주요 플레이어와 파트너십 -->
+        <section class="slide" id="slide-5">
+            <div class="slide-content">
+                <h2 class="slide-title h2-title">주요 플레이어와 파트너십</h2>
+                <div class="players-overview">
+                    <div class="ai-companies">
+                        <h3 class="h3-subtitle">AI 전문 바이오테크</h3>
+                        <div class="company-grid">
+                            <div class="company-card glass-card interactive-element">
+                                <h4>Insilico Medicine</h4>
+                                <span class="funding emphasis-text">$549M</span>
+                                <p class="body-text">31개 프로그램 | Series C</p>
+                            </div>
+                            <div class="company-card glass-card interactive-element">
+                                <h4>Xaira</h4>
+                                <span class="funding emphasis-text">$1,000M</span>
+                                <p class="body-text">5개 프로그램 | Series A</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="partnerships">
+                        <h3 class="h3-subtitle">빅파마 파트너십</h3>
+                        <div class="partnership-list">
+                            <div class="partnership-item glass-card interactive-element">
+                                <span class="pharma">Eli Lilly × Isomorphic Labs</span>
+                                <div class="deal-value">$1.7B</div>
+                            </div>
+                            <div class="partnership-item glass-card interactive-element">
+                                <span class="pharma">Novartis × Isomorphic Labs</span>
+                                <div class="deal-value">$1.2B</div>
+                            </div>
+                        </div>
+                        <div class="total-investment glass-card">
+                            <span class="amount emphasis-text">$30B+</span>
+                            <span class="description body-text">빅파마 AI 파트너십 총액</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 슬라이드 6: 기술적 도전과제 -->
+        <section class="slide" id="slide-6">
+            <div class="slide-content">
+                <h2 class="slide-title h2-title">기술적 도전과제</h2>
+                <div class="challenges-overview">
+                    <div class="challenges-grid">
+                        <div class="challenge-item glass-card interactive-element">
+                            <div class="challenge-icon">📊</div>
+                            <h3>데이터 품질과 가용성</h3>
+                            <p class="body-text"><strong>문제:</strong> 사일로화된 제약 데이터, 편향된 결과 보고</p>
+                            <p class="body-text"><strong>해결책:</strong> 표준화된 데이터 공유 플랫폼, 연합 학습</p>
+                            <div class="severity high">심각도: 높음</div>
+                        </div>
+                        <div class="challenge-item glass-card interactive-element">
+                            <div class="challenge-icon">🔍</div>
+                            <h3>해석가능성 (블랙박스)</h3>
+                            <p class="body-text"><strong>문제:</strong> AI 의사결정 과정 불투명, 생물학적 설명 부족</p>
+                            <p class="body-text"><strong>해결책:</strong> 설명 가능한 AI (XAI), 인과관계 모델링</p>
+                            <div class="severity high">심각도: 높음</div>
+                        </div>
+                        <div class="challenge-item glass-card interactive-element">
+                            <div class="challenge-icon">💻</div>
+                            <h3>컴퓨팅 요구사항</h3>
+                            <p class="body-text"><strong>문제:</strong> 고비용 GPU 인프라 (연 $4,500/GPU)</p>
+                            <p class="body-text"><strong>해결책:</strong> 클라우드 최적화, 효율적 모델 아키텍처</p>
+                            <div class="severity medium">심각도: 중간</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 슬라이드 7: AI의 정량적 장점 -->
+        <section class="slide" id="slide-7">
+            <div class="slide-content">
+                <h2 class="slide-title h2-title">AI의 정량적 장점</h2>
+                <div class="advantages-overview">
+                    <div class="comparison-section">
+                        <h3 class="h3-subtitle">핵심 지표 비교</h3>
+                        <div class="comparison-grid">
+                            <div class="comparison-item glass-card interactive-element">
+                                <div class="metric-name">임상 1상 성공률</div>
+                                <div class="ai-value">80-90%</div>
+                                <div class="traditional-value">40-65%</div>
+                            </div>
+                            <div class="comparison-item glass-card interactive-element">
+                                <div class="metric-name">개발 기간 단축</div>
+                                <div class="ai-value">1-2년</div>
+                                <div class="traditional-value">4-7년</div>
+                            </div>
+                            <div class="comparison-item glass-card interactive-element">
+                                <div class="metric-name">비용 절감</div>
+                                <div class="ai-value">최대 75%</div>
+                                <div class="traditional-value">기준점</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 슬라이드 8: 규제 환경과 승인 현황 -->
+        <section class="slide" id="slide-8">
+            <div class="slide-content">
+                <h2 class="slide-title h2-title">규제 환경과 승인 현황</h2>
+                <div class="regulatory-overview">
+                    <div class="regulatory-updates">
+                        <h3 class="h3-subtitle">최신 규제 동향</h3>
+                        <div class="regulatory-item glass-card interactive-element">
+                            <div class="agency-logo">🇺🇸</div>
+                            <h4>FDA 가이드라인</h4>
+                            <div class="update-date">2025년 1월</div>
+                            <p class="body-text">AI 활용 의약품 규제 의사결정 지원 프레임워크 초안 발표</p>
+                        </div>
+                        <div class="regulatory-item glass-card interactive-element">
+                            <div class="agency-logo">🇪🇺</div>
+                            <h4>EMA 규제 입장</h4>
+                            <div class="update-date">2024년 9월</div>
+                            <p class="body-text">AI 활용 의약품 생애주기 반영 문서 발표</p>
+                        </div>
+                    </div>
+                    <div class="clinical-pipeline">
+                        <h3 class="h3-subtitle">현재 임상 파이프라인</h3>
+                        <div class="pipeline-stats">
+                            <div class="pipeline-item glass-card interactive-element">
+                                <div class="pipeline-stage">임상 1상</div>
+                                <div class="pipeline-count emphasis-text">17개</div>
+                            </div>
+                            <div class="pipeline-item glass-card interactive-element">
+                                <div class="pipeline-stage">임상 2/3상</div>
+                                <div class="pipeline-count emphasis-text">9개</div>
+                            </div>
+                            <div class="pipeline-item glass-card interactive-element">
+                                <div class="pipeline-stage">승인 예상</div>
+                                <div class="pipeline-count emphasis-text">2025-2026</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 슬라이드 9: 미래 기술 트렌드 -->
+        <section class="slide" id="slide-9">
+            <div class="slide-content">
+                <h2 class="slide-title h2-title">미래 기술 트렌드</h2>
+                <div class="future-trends">
+                    <div class="convergence-technologies">
+                        <h3 class="h3-subtitle">차세대 융합 기술</h3>
+                        <div class="tech-roadmap">
+                            <div class="roadmap-item glass-card interactive-element">
+                                <div class="tech-timeline">2025-2026</div>
+                                <div class="tech-info">
+                                    <h4><span class="tech-icon">⚛️</span>양자컴퓨팅 통합</h4>
+                                    <p class="body-text">Insilico Medicine: 1억 개 분자 스크리닝</p>
+                                </div>
+                                <div class="impact-level high">임팩트: 높음</div>
+                            </div>
+                            <div class="roadmap-item glass-card interactive-element">
+                                <div class="tech-timeline">2026-2027</div>
+                                <div class="tech-info">
+                                    <h4><span class="tech-icon">✂️</span>CRISPR-AI 융합</h4>
+                                    <p class="body-text">AI 기반 gRNA 설계로 60% 시간 단축</p>
+                                </div>
+                                <div class="impact-level medium">임팩트: 중간</div>
+                            </div>
+                            <div class="roadmap-item glass-card interactive-element">
+                                <div class="tech-timeline">2027-2028</div>
+                                <div class="tech-info">
+                                    <h4><span class="tech-icon">🧪</span>장기칩-AI 통합</h4>
+                                    <p class="body-text">다중 장기 시스템과 고처리량 스크리닝</p>
+                                </div>
+                                <div class="impact-level medium">임팩트: 중간</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="investment-opportunities">
+                        <h3 class="h3-subtitle">투자 기회 분야</h3>
+                        <div class="opportunity-grid">
+                            <div class="opportunity-item glass-card interactive-element">
+                                <h4>양자-고전 하이브리드</h4>
+                                <div class="opportunity-value">$15B 시장</div>
+                            </div>
+                            <div class="opportunity-item glass-card interactive-element">
+                                <h4>자동화 연구소</h4>
+                                <div class="opportunity-value">$12B 시장</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 슬라이드 10: 전략적 시사점과 결론 -->
+        <section class="slide" id="slide-10">
+            <div class="slide-content">
+                <h2 class="slide-title h2-title">전략적 시사점과 결론</h2>
+                <div class="strategic-insights">
+                    <div class="key-insights">
+                        <h3 class="h3-subtitle">핵심 전략적 시사점</h3>
+                        <div class="insights-grid">
+                            <div class="insight-item glass-card interactive-element">
+                                <div class="insight-icon">⏰</div>
+                                <h4>조기 투자의 중요성</h4>
+                                <p class="body-text">선도 기업들이 이미 대규모 투자 완료</p>
+                            </div>
+                            <div class="insight-item glass-card interactive-element">
+                                <div class="insight-icon">🤝</div>
+                                <h4>파트너십 전략</h4>
+                                <p class="body-text">빅파마와 AI 기업의 전략적 제휴 필수</p>
+                            </div>
+                            <div class="insight-item glass-card interactive-element">
+                                <div class="insight-icon">🧠</div>
+                                <h4>인재 확보 전략</h4>
+                                <p class="body-text">AI와 신약 개발 융합 전문가 부족</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="final-message">
+                        <div class="conclusion-box glass-card">
+                            <h3>결론</h3>
+                            <p class="conclusion-text body-text">
+                                AI 신약 타겟 발굴은 더 이상 미래의 기술이 아닙니다. 
+                                <strong>지금이 이 혁신에 참여할 최적의 시점</strong>입니다.
+                            </p>
+                            <div class="final-stats">
+                                <div class="final-stat interactive-element">
+                                    <span class="number">91B USD</span>
+                                    <span class="label">2030년 시장 규모</span>
+                                </div>
+                                <div class="final-stat interactive-element">
+                                    <span class="number">80%+</span>
+                                    <span class="label">AI 신약 성공률</span>
+                                </div>
+                                <div class="final-stat interactive-element">
+                                    <span class="number">2025</span>
+                                    <span class="label">첫 승인 예상</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/slides.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>
