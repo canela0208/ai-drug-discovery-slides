@@ -34,10 +34,16 @@ open src/index.html
 ## 📁 프로젝트 구조
 ```
 ait/
-├── src/           # 소스 코드
-├── assets/        # 이미지, 데이터
-├── docs/          # 문서
-└── README.md      # 이 파일
+├── src/                     # 소스 코드
+│   ├── index.html          # 메인 슬라이드 파일
+│   ├── css/                # 스타일시트
+│   └── js/                 # JavaScript 파일
+├── assets/                 # 이미지, 데이터
+├── docs/                   # 문서
+│   ├── design-system.md    # 디자인 시스템 가이드
+│   └── slide-planning.md   # 상세 기획서
+├── project-plan.md         # 프로젝트 계획서
+└── README.md               # 이 파일
 ```
 
 ## 🎨 디자인 컨셉
@@ -48,10 +54,16 @@ ait/
 
 ## 📈 업데이트 계획
 - [x] 프로젝트 세팅
+- [x] 상세 기획서 작성
 - [ ] 기본 슬라이드 구조
 - [ ] 콘텐츠 및 데이터 입력
 - [ ] 인터랙티브 요소 추가
 - [ ] 최종 검토 및 완성
+
+## 📋 주요 문서
+- [프로젝트 계획서](./project-plan.md) - 기본 개요와 구조
+- [상세 기획서](./docs/slide-planning.md) - 슬라이드별 상세 기획
+- [디자인 시스템](./docs/design-system.md) - UI/UX 가이드라인
 
 ---
 **최종 업데이트**: 2025년 6월 29일
