@@ -22,8 +22,21 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
+    console.log(`총 ${slides.length}개의 슬라이드를 발견했습니다.`);
+    
+    // 모든 슬라이드를 초기에 완전히 숨김
+    slides.forEach((slide, index) => {
+        slide.style.opacity = '0';
+        slide.style.visibility = 'hidden';
+        slide.style.pointerEvents = 'none';
+        slide.style.zIndex = '1';
+        slide.style.transform = 'translateX(100px)';
+    });
+    
     // 초기 슬라이드 설정
     updateSlideDisplay();
+    updateProgress();
+    updateButtons();
     
     // 이벤트 리스너 등록
     setupEventListeners();
@@ -35,35 +48,77 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof initializeAnimations === 'function') {
         initializeAnimations();
     }
+    
+    console.log(`초기화 완료. 현재 슬라이드: ${currentSlide}`);
 });
 
 // 이벤트 리스너 설정
 function setupEventListeners() {
     // 네비게이션 버튼
-    prevBtn.addEventListener('click', previousSlide);
-    nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('이전 버튼 클릭');
+            previousSlide();
+        });
+        
+        nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('다음 버튼 클릭');
+            nextSlide();
+        });
+    }
     
     // 터치/스와이프 이벤트 (모바일 지원)
     let startX = 0;
     let endX = 0;
+    let startY = 0;
+    let endY = 0;
+    let isScrolling = false;
     
     document.addEventListener('touchstart', function(e) {
         startX = e.touches[0].clientX;
-    });
+        startY = e.touches[0].clientY;
+        isScrolling = false;
+    }, { passive: true });
+    
+    document.addEventListener('touchmove', function(e) {
+        if (!startX || !startY) return;
+        
+        const currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        
+        const diffX = Math.abs(currentX - startX);
+        const diffY = Math.abs(currentY - startY);
+        
+        // 세로 스크롤이 더 크면 스와이프 무시
+        if (diffY > diffX) {
+            isScrolling = true;
+        }
+    }, { passive: true });
     
     document.addEventListener('touchend', function(e) {
+        if (isScrolling) return;
+        
         endX = e.changedTouches[0].clientX;
+        endY = e.changedTouches[0].clientY;
         handleSwipe();
-    });
+    }, { passive: true });
     
     function handleSwipe() {
         const threshold = 50;
-        const diff = startX - endX;
+        const diffX = startX - endX;
+        const diffY = Math.abs(startY - endY);
         
-        if (Math.abs(diff) > threshold) {
-            if (diff > 0) {
+        // 세로 움직임이 너무 크면 무시
+        if (diffY > 100) return;
+        
+        if (Math.abs(diffX) > threshold) {
+            if (diffX > 0) {
+                console.log('오른쪽 스와이프 - 다음 슬라이드');
                 nextSlide();
             } else {
+                console.log('왼쪽 스와이프 - 이전 슬라이드');
                 previousSlide();
             }
         }
@@ -111,8 +166,12 @@ function previousSlide() {
 }
 
 function goToSlide(slideNumber) {
-    if (slideNumber >= 1 && slideNumber <= totalSlides) {
+    if (slideNumber >= 1 && slideNumber <= totalSlides && slideNumber !== currentSlide) {
+        console.log(`슬라이드 ${currentSlide}에서 ${slideNumber}로 이동`);
+        
+        const previousSlide = currentSlide;
         currentSlide = slideNumber;
+        
         updateSlideDisplay();
         updateProgress();
         updateButtons();
@@ -124,13 +183,26 @@ function goToSlide(slideNumber) {
         
         // 슬라이드별 특별 애니메이션
         if (typeof triggerSlideSpecificAnimations === 'function') {
-            triggerSlideSpecificAnimations(slideNumber);
+            setTimeout(() => {
+                triggerSlideSpecificAnimations(slideNumber);
+            }, 300);
         }
+        
+        console.log(`슬라이드 전환 완료: ${previousSlide} → ${currentSlide}`);
+    } else if (slideNumber === currentSlide) {
+        console.log(`이미 슬라이드 ${slideNumber}에 있습니다.`);
+    } else {
+        console.warn(`잘못된 슬라이드 번호: ${slideNumber} (범위: 1-${totalSlides})`);
     }
 }
 
 // UI 업데이트 함수들
 function updateSlideDisplay() {
+    if (!slides || slides.length === 0) {
+        console.error('슬라이드 요소들을 찾을 수 없습니다.');
+        return;
+    }
+    
     slides.forEach((slide, index) => {
         // 모든 클래스 제거
         slide.classList.remove('active', 'prev');
@@ -149,6 +221,7 @@ function updateSlideDisplay() {
             slide.style.pointerEvents = 'auto';
             slide.style.zIndex = '10';
             slide.style.transform = 'translateX(0)';
+            console.log(`슬라이드 ${index + 1} 활성화`);
         } else if (index + 1 < currentSlide) {
             // 이전 슬라이드
             slide.classList.add('prev');
@@ -165,11 +238,29 @@ function updateSlideDisplay() {
 }
 
 function updateProgress() {
-    const progressPercentage = (currentSlide / totalSlides) * 100;
-    progressBar.style.width = `${progressPercentage}%`;
+    if (progressBar) {
+        const progressPercentage = (currentSlide / totalSlides) * 100;
+        progressBar.style.width = `${progressPercentage}%`;
+        console.log(`진행률 업데이트: ${progressPercentage}%`);
+    }
 }
 
 function updateButtons() {
-    prevBtn.disabled = currentSlide === 1;
-    nextBtn.disabled = currentSlide === totalSlides;
+    if (prevBtn && nextBtn) {
+        prevBtn.disabled = currentSlide === 1;
+        nextBtn.disabled = currentSlide === totalSlides;
+        
+        // 버튼 상태 시각적 피드백
+        if (currentSlide === 1) {
+            prevBtn.style.opacity = '0.5';
+        } else {
+            prevBtn.style.opacity = '1';
+        }
+        
+        if (currentSlide === totalSlides) {
+            nextBtn.style.opacity = '0.5';
+        } else {
+            nextBtn.style.opacity = '1';
+        }
+    }
 }
