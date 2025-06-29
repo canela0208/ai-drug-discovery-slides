@@ -6,32 +6,6 @@
 /* Import Design System */
 @import url('./design-system.css');
 
-/* 슬라이드 기본 구조 */
-.slide {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: linear-gradient(135deg, var(--background-black) 0%, var(--background-dark) 100%);
-    padding: var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    overflow: hidden;
-    position: relative;
-    opacity: 0;
-    transform: translateX(100px);
-    transition: all var(--transition-slow);
-}
-
-.slide.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.slide.prev {
-    transform: translateX(-100px);
-}
-
 /* 네비게이션 스타일 */
 .slide-nav {
     position: fixed;

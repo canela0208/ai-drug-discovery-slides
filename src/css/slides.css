@@ -11,6 +11,34 @@
     overflow: hidden;
 }
 
+/* 개별 슬라이드 */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all var(--transition-slow);
+    padding: var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
+}
+
+.slide.prev {
+    transform: translateX(-100px);
+    z-index: 0;
+}
+
 /* 슬라이드 콘텐츠 */
 .slide-content {
     max-width: 1200px;
@@ -21,7 +49,83 @@
     margin: 0 auto;
 }
 
-/* ===== 슬라이드 1: 타이틀 슬라이드 ===== */
+/* ===== 슬라이드 2: 시장 현황 ===== */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.market-overview {
+    text-align: center;
+}
+
+.market-overview h3 {
+    margin-bottom: var(--space-lg);
+}
+
+.market-chart {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.year-data {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+}
+
+.year {
+    min-width: 80px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.bar-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    position: relative;
+}
+
+.bar {
+    height: 40px;
+    border-radius: 8px;
+    transition: width 1s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        transparent 100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.value {
+    min-width: 120px;
+    text-align: left;
+    font-weight: 700;
+}
 .title-slide {
     text-align: center;
     justify-content: center;

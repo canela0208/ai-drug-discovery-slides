@@ -2,16 +2,25 @@
 let currentSlide = 1;
 const totalSlides = 10;
 
-// DOM 요소들
-const slideCounter = document.getElementById('slideCounter');
-const progressBar = document.getElementById('progressBar');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const slides = document.querySelectorAll('.slide');
+// DOM 요소들 (나중에 초기화)
+let slideCounter, progressBar, prevBtn, nextBtn, slides;
 
 // 초기화
 document.addEventListener('DOMContentLoaded', function() {
     console.log('AI 타겟 발굴 프레젠테이션 로드됨');
+    
+    // DOM 요소들 초기화
+    slideCounter = document.getElementById('slideCounter');
+    progressBar = document.getElementById('progressBar');
+    prevBtn = document.getElementById('prevBtn');
+    nextBtn = document.getElementById('nextBtn');
+    slides = document.querySelectorAll('.slide');
+    
+    // 요소 존재 확인
+    if (!slideCounter || !progressBar || !prevBtn || !nextBtn || slides.length === 0) {
+        console.error('필수 DOM 요소를 찾을 수 없습니다.');
+        return;
+    }
     
     // 초기 슬라이드 설정
     updateSlideDisplay();
@@ -23,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
     setupKeyboardNavigation();
     
     // 애니메이션 초기화
-    initializeAnimations();
+    if (typeof initializeAnimations === 'function') {
+        initializeAnimations();
+    }
 });
 
 // 이벤트 리스너 설정
@@ -107,7 +118,14 @@ function goToSlide(slideNumber) {
         updateButtons();
         
         // 슬라이드 변경 애니메이션
-        animateSlideTransition();
+        if (typeof animateSlideTransition === 'function') {
+            animateSlideTransition();
+        }
+        
+        // 슬라이드별 특별 애니메이션
+        if (typeof triggerSlideSpecificAnimations === 'function') {
+            triggerSlideSpecificAnimations(slideNumber);
+        }
     }
 }
 
