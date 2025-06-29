@@ -1,0 +1,179 @@
+/* ===================================
+   AI 신약 타겟 발굴 - 새로운 디자인 시스템
+   디자인 가이드 기반 재디자인
+   =================================== */
+
+/* CSS Reset 및 기본 설정 */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Core Purple Palette */
+    --primary-purple: #673AB7;   /* Deep Purple */
+    --secondary-purple: #9C27B0; /* Light Purple */
+    --accent-purple: #B388FF;    /* Soft Purple */
+    --tertiary-indigo: #3F51B5;  /* Indigo */
+
+    /* Background & Glass */
+    --background-black: #000000;
+    --background-dark: #1a1a1a;
+    --glass-bg: rgba(30, 30, 30, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.15);
+
+    /* Text Palette */
+    --text-primary: #FFFFFF;
+    --text-secondary: #CCCCCC;   /* Gray */
+    --text-light: #E0E0E0;       /* Light Gray */
+    
+    /* Additional Colors for Data */
+    --success-color: #4CAF50;
+    --warning-color: #FF9800;
+    --error-color: #F44336;
+    
+    /* Font Family */
+    --font-primary: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    
+    /* Spacing System */
+    --space-xs: 0.5rem;   /* 8px */
+    --space-sm: 1rem;     /* 16px */
+    --space-md: 2rem;     /* 32px */
+    --space-lg: 4rem;     /* 64px */
+    --space-xl: 6rem;     /* 96px */
+    
+    /* Typography Sizes */
+    --text-h1: 5rem;      /* 80px - Main Title */
+    --text-h2: 3rem;      /* 48px - Section Title */
+    --text-h3: 1.75rem;   /* 28px - Sub Title */
+    --text-body: 1.25rem; /* 20px - Body Text */
+    --text-emphasis: 2.5rem; /* 40px - Emphasis */
+    
+    /* Shadows & Effects */
+    --shadow-soft: 0 4px 20px rgba(103, 58, 183, 0.2);
+    --shadow-strong: 0 8px 32px rgba(103, 58, 183, 0.4);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease-out;
+    --transition-normal: 0.3s ease-out;
+    --transition-slow: 0.7s ease-out;
+}
+
+/* Import Pretendard Font */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+
+/* Base Styles */
+body {
+    font-family: var(--font-primary);
+    background: linear-gradient(135deg, var(--background-black) 0%, var(--background-dark) 100%);
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Typography Hierarchy */
+.h1-title {
+    font-size: var(--text-h1);
+    font-weight: 900;
+    line-height: 1.2;
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.h2-title {
+    font-size: var(--text-h2);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.h3-subtitle {
+    font-size: var(--text-h3);
+    font-weight: 500;
+    background: linear-gradient(90deg, var(--text-primary) 0%, var(--accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.body-text {
+    font-size: var(--text-body);
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.emphasis-text {
+    font-size: var(--text-emphasis);
+    font-weight: 700;
+    color: var(--accent-purple);
+    text-shadow: 0 0 10px rgba(179, 136, 255, 0.4);
+}
+
+/* Glass Card Component */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+    padding: var(--space-md);
+    transition: all var(--transition-normal);
+}
+
+.glass-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px rgba(103, 58, 183, 0.5);
+}
+
+/* Gradient Backgrounds */
+.gradient-box {
+    background: linear-gradient(120deg, var(--tertiary-indigo) 0%, var(--primary-purple) 100%);
+    box-shadow: var(--shadow-strong);
+    border-radius: 16px;
+    padding: var(--space-md);
+}
+
+/* Interactive Elements */
+.interactive-element {
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.interactive-element:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px rgba(103, 58, 183, 0.5);
+}
+
+/* Slide Enter Animation */
+.slide-enter-active {
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    :root {
+        --text-h1: 4rem;
+        --text-h2: 2.5rem;
+        --text-h3: 1.5rem;
+        --text-body: 1.1rem;
+        --text-emphasis: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --text-h1: 3rem;
+        --text-h2: 2rem;
+        --text-h3: 1.25rem;
+        --text-body: 1rem;
+        --text-emphasis: 1.5rem;
+        --space-lg: 2rem;
+        --space-xl: 3rem;
+    }
+}

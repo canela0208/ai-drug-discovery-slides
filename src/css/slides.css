@@ -1,34 +1,14 @@
+/* ===================================
+   AI 신약 타겟 발굴 - 슬라이드 스타일
+   새로운 퍼플 디자인 시스템 적용
+   =================================== */
+
 /* 슬라이드 컨테이너 */
 .slides-container {
     margin-top: 80px;
     height: calc(100vh - 80px);
     position: relative;
     overflow: hidden;
-}
-
-/* 개별 슬라이드 */
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transform: translateX(100px);
-    transition: all var(--transition-slow);
-    padding: var(--spacing-xl);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slide.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.slide.prev {
-    transform: translateX(-100px);
 }
 
 /* 슬라이드 콘텐츠 */
@@ -38,9 +18,10 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
 }
 
-/* 타이틀 슬라이드 */
+/* ===== 슬라이드 1: 타이틀 슬라이드 ===== */
 .title-slide {
     text-align: center;
     justify-content: center;
@@ -48,87 +29,106 @@
 }
 
 .title-header {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--space-xl);
 }
 
 .main-title {
-    font-size: 4rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+    font-size: var(--text-h1);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--space-sm);
     line-height: 1.2;
+    text-shadow: 0 0 20px rgba(103, 58, 183, 0.3);
 }
 
 .sub-title {
-    font-size: 1.8rem;
-    color: var(--gray-text);
-    font-weight: 400;
-    margin-bottom: var(--spacing-md);
+    font-size: var(--text-h3);
+    background: linear-gradient(90deg, var(--text-primary) 0%, var(--accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 500;
+    margin-bottom: var(--space-md);
 }
 
 .title-divider {
     width: 200px;
     height: 3px;
-    background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+    background: linear-gradient(90deg, var(--primary-purple), var(--accent-purple));
     margin: 0 auto;
     border-radius: 2px;
+    box-shadow: 0 0 10px rgba(179, 136, 255, 0.5);
 }
 
-/* 주요 통계 */
+/* 주요 통계 - 글래스모피즘 적용 */
 .key-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xl);
-    margin: var(--spacing-xl) 0;
-    padding: var(--spacing-xl);
-    background: rgba(26, 29, 36, 0.5);
+    gap: var(--space-xl);
+    margin: var(--space-xl) 0;
+    padding: var(--space-xl);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
 }
 
 .stat-item {
     text-align: center;
-    padding: var(--spacing-lg);
+    padding: var(--space-md);
+    transition: all var(--transition-normal);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px) scale(1.02);
 }
 
 .stat-number {
-    font-size: 3rem;
+    font-size: var(--text-emphasis);
     font-weight: 700;
-    color: var(--accent-cyan);
-    font-family: var(--font-mono);
-    margin-bottom: var(--spacing-xs);
+    color: var(--accent-purple);
+    font-family: var(--font-primary);
+    margin-bottom: var(--space-xs);
+    text-shadow: 0 0 10px rgba(179, 136, 255, 0.4);
 }
 
 .stat-label {
-    font-size: 1rem;
-    color: var(--gray-text);
+    font-size: var(--text-body);
+    color: var(--text-secondary);
     font-weight: 500;
+    line-height: 1.4;
 }
 
 /* 프레젠테이션 정보 */
 .presentation-info {
-    margin-top: var(--spacing-xl);
-    color: var(--gray-text);
+    margin-top: var(--space-xl);
+    color: var(--text-secondary);
+    text-align: center;
 }
 
 .presentation-info p {
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--space-xs);
+    font-size: 1.1rem;
 }
 
 .date {
-    font-family: var(--font-mono);
+    font-family: var(--font-primary);
     font-size: 0.9rem;
+    color: var(--accent-purple);
+    font-weight: 500;
 }
 
-/* 일반 슬라이드 제목 */
+/* ===== 일반 슬라이드 제목 ===== */
 .slide-title {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--light-text);
-    margin-bottom: var(--spacing-lg);
+    font-size: var(--text-h2);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
     text-align: center;
     position: relative;
 }
@@ -141,6 +141,908 @@
     transform: translateX(-50%);
     width: 100px;
     height: 3px;
-    background: var(--primary-blue);
+    background: linear-gradient(90deg, var(--primary-purple), var(--accent-purple));
     border-radius: 2px;
+    box-shadow: 0 0 10px rgba(179, 136, 255, 0.5);
+}
+
+/* ===== 슬라이드 3: 기술 그리드 ===== */
+.technology-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+}
+
+.tech-category h3 {
+    color: var(--accent-purple);
+    margin-bottom: var(--space-md);
+    font-size: var(--text-h3);
+    font-weight: 600;
+}
+
+.tech-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+.tech-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: var(--space-lg);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--accent-purple));
+}
+
+.tech-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px rgba(103, 58, 183, 0.5);
+    border-color: var(--accent-purple);
+}
+
+.tech-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+}
+
+.tech-info h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.tech-stats {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.tech-stats span {
+    background: linear-gradient(120deg, var(--tertiary-indigo) 0%, var(--primary-purple) 100%);
+    color: var(--text-primary);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(103, 58, 183, 0.3);
+}
+
+.tech-info p {
+    color: var(--text-secondary);
+    font-size: var(--text-body);
+    line-height: 1.5;
+}
+
+/* ===== 슬라이드 4: 성공 사례 ===== */
+.success-story {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.company-intro {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    background: linear-gradient(120deg, 
+        rgba(103, 58, 183, 0.1) 0%, 
+        rgba(156, 39, 176, 0.1) 100%);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(8px);
+}
+
+.company-logo {
+    font-size: 3rem;
+}
+
+.company-info h3 {
+    color: var(--accent-purple);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-xs);
+}
+
+.company-info p {
+    color: var(--text-secondary);
+    font-size: var(--text-body);
+}
+
+.drug-showcase {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: var(--space-xl);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+}
+
+.drug-info h3 {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+}
+
+.indication {
+    margin-bottom: var(--space-lg);
+}
+
+.indication .label {
+    color: var(--text-secondary);
+    margin-right: var(--space-xs);
+    font-weight: 500;
+}
+
+.indication .value {
+    color: var(--accent-purple);
+    font-weight: 700;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-around;
+    margin: var(--space-xl) 0;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--accent-purple));
+}
+
+.timeline-item {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-date {
+    background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+    color: var(--text-primary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    display: inline-block;
+    box-shadow: var(--shadow-soft);
+}
+
+.timeline-item.highlight .timeline-date {
+    background: linear-gradient(135deg, var(--success-color), #66BB6A);
+}
+
+.timeline-event {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.key-achievement {
+    text-align: center;
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+    background: linear-gradient(120deg, 
+        rgba(76, 175, 80, 0.1) 0%, 
+        rgba(102, 187, 106, 0.1) 100%);
+    border-radius: 16px;
+    border: 1px solid var(--success-color);
+    backdrop-filter: blur(8px);
+}
+
+.achievement-stat .stat-number {
+    font-size: var(--text-emphasis);
+    color: var(--success-color);
+    font-weight: 700;
+    font-family: var(--font-primary);
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+}
+
+.achievement-stat .stat-label {
+    color: var(--text-secondary);
+    font-size: var(--text-body);
+    margin-top: var(--space-xs);
+    font-weight: 500;
+}
+
+/* ===== 슬라이드 5: 플레이어와 파트너십 ===== */
+.players-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+}
+
+.ai-companies h3, .partnerships h3 {
+    color: var(--accent-purple);
+    margin-bottom: var(--space-md);
+    font-size: var(--text-h3);
+    font-weight: 600;
+}
+
+.company-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+.company-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: var(--space-lg);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.company-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--tertiary-indigo), var(--primary-purple));
+}
+
+.company-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px rgba(103, 58, 183, 0.5);
+}
+
+.company-card h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.company-card .funding {
+    color: var(--success-color);
+    font-weight: 700;
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    text-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+}
+
+.company-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: var(--space-xs);
+}
+
+.partnership-list {
+    margin-bottom: var(--space-lg);
+}
+
+.partnership-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md);
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    margin-bottom: var(--space-sm);
+    transition: all var(--transition-normal);
+}
+
+.partnership-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.partnership-item .pharma {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.deal-value {
+    color: var(--warning-color);
+    font-weight: 700;
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    text-shadow: 0 0 8px rgba(255, 152, 0, 0.4);
+}
+
+.total-investment {
+    text-align: center;
+    padding: var(--space-lg);
+    background: linear-gradient(120deg, 
+        rgba(63, 81, 181, 0.1) 0%, 
+        rgba(103, 58, 183, 0.1) 100%);
+    border-radius: 16px;
+    border: 1px solid var(--tertiary-indigo);
+    backdrop-filter: blur(8px);
+}
+
+.total-investment .amount {
+    font-size: var(--text-emphasis);
+    color: var(--accent-purple);
+    font-weight: 700;
+    font-family: var(--font-primary);
+    display: block;
+    text-shadow: 0 0 10px rgba(179, 136, 255, 0.4);
+}
+
+.total-investment .description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: var(--space-xs);
+    font-weight: 500;
+}
+
+/* ===== 슬라이드 6: 기술적 도전과제 ===== */
+.challenges-overview {
+    margin-top: var(--space-lg);
+}
+
+.challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.challenge-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: var(--space-lg);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.challenge-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--warning-color), #FFB74D);
+}
+
+.challenge-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px rgba(255, 152, 0, 0.3);
+}
+
+.challenge-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+}
+
+.challenge-item h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.challenge-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+    font-size: 0.95rem;
+}
+
+.severity {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: var(--space-sm);
+}
+
+.severity.high {
+    background: rgba(255, 152, 0, 0.2);
+    color: var(--warning-color);
+    border: 1px solid var(--warning-color);
+}
+
+.severity.medium {
+    background: rgba(103, 58, 183, 0.2);
+    color: var(--primary-purple);
+    border: 1px solid var(--primary-purple);
+}
+
+/* ===== 슬라이드 7: AI의 정량적 장점 ===== */
+.advantages-overview {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.comparison-section h3 {
+    color: var(--accent-purple);
+    font-size: var(--text-h3);
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.comparison-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: var(--space-md);
+    transition: all var(--transition-normal);
+}
+
+.comparison-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+
+.metric-name {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.ai-value {
+    color: var(--success-color);
+    font-weight: 700;
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+}
+
+.traditional-value {
+    color: var(--warning-color);
+    font-weight: 700;
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(255, 152, 0, 0.4);
+}
+
+/* ===== 슬라이드 8: 규제 환경 ===== */
+.regulatory-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+}
+
+.regulatory-updates h3, .clinical-pipeline h3 {
+    color: var(--accent-purple);
+    margin-bottom: var(--space-md);
+    font-size: var(--text-h3);
+    font-weight: 600;
+}
+
+.regulatory-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: var(--space-lg);
+    margin-bottom: var(--space-md);
+    transition: all var(--transition-normal);
+}
+
+.regulatory-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+
+.agency-logo {
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+}
+
+.regulatory-item h4 {
+    color: var(--accent-purple);
+    margin-bottom: var(--space-xs);
+    font-weight: 600;
+}
+
+.update-date {
+    color: var(--success-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: var(--space-sm);
+}
+
+.regulatory-item p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.pipeline-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+.pipeline-item {
+    text-align: center;
+    padding: var(--space-lg);
+    background: linear-gradient(120deg, 
+        rgba(63, 81, 181, 0.1) 0%, 
+        rgba(103, 58, 183, 0.1) 100%);
+    border-radius: 16px;
+    border: 1px solid var(--tertiary-indigo);
+    backdrop-filter: blur(8px);
+    transition: all var(--transition-normal);
+}
+
+.pipeline-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+
+.pipeline-stage {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    font-size: 0.95rem;
+}
+
+.pipeline-count {
+    font-size: var(--text-emphasis);
+    color: var(--accent-purple);
+    font-weight: 700;
+    font-family: var(--font-primary);
+    text-shadow: 0 0 10px rgba(179, 136, 255, 0.4);
+}
+
+/* ===== 슬라이드 9: 미래 기술 트렌드 ===== */
+.future-trends {
+    margin-top: var(--space-lg);
+}
+
+.convergence-technologies h3, .investment-opportunities h3 {
+    color: var(--accent-purple);
+    font-size: var(--text-h3);
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+}
+
+.tech-roadmap {
+    margin-top: var(--space-lg);
+}
+
+.roadmap-item {
+    display: grid;
+    grid-template-columns: 120px auto 120px;
+    gap: var(--space-lg);
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    padding: var(--space-lg);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    transition: all var(--transition-normal);
+}
+
+.roadmap-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+
+.tech-timeline {
+    background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+    color: var(--text-primary);
+    padding: var(--space-sm);
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.tech-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.tech-info h4 {
+    color: var(--text-primary);
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.tech-icon {
+    font-size: 1.5rem;
+}
+
+.tech-info p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.impact-level {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.impact-level.high {
+    background: rgba(76, 175, 80, 0.2);
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+.impact-level.medium {
+    background: rgba(255, 152, 0, 0.2);
+    color: var(--warning-color);
+    border: 1px solid var(--warning-color);
+}
+
+.opportunity-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.opportunity-item {
+    text-align: center;
+    padding: var(--space-lg);
+    background: linear-gradient(120deg, 
+        rgba(179, 136, 255, 0.1) 0%, 
+        rgba(156, 39, 176, 0.1) 100%);
+    border-radius: 16px;
+    border: 1px solid var(--accent-purple);
+    backdrop-filter: blur(8px);
+    transition: all var(--transition-normal);
+}
+
+.opportunity-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+
+.opportunity-item h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+}
+
+.opportunity-value {
+    font-size: 1.6rem;
+    color: var(--accent-purple);
+    font-weight: 700;
+    font-family: var(--font-primary);
+    text-shadow: 0 0 10px rgba(179, 136, 255, 0.4);
+}
+
+/* ===== 슬라이드 10: 전략적 시사점과 결론 ===== */
+.strategic-insights {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.key-insights h3 {
+    color: var(--accent-purple);
+    font-size: var(--text-h3);
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0;
+}
+
+.insight-item {
+    text-align: center;
+    padding: var(--space-lg);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.insight-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--accent-purple));
+}
+
+.insight-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 25px rgba(103, 58, 183, 0.5);
+}
+
+.insight-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.insight-item h4 {
+    color: var(--accent-purple);
+    margin-bottom: var(--space-sm);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.insight-item p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.final-message {
+    margin-top: var(--space-xl);
+}
+
+.conclusion-box {
+    background: linear-gradient(135deg, 
+        rgba(103, 58, 183, 0.1) 0%, 
+        rgba(179, 136, 255, 0.1) 100%);
+    border: 2px solid var(--primary-purple);
+    border-radius: 16px;
+    padding: var(--space-xl);
+    text-align: center;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-glass);
+}
+
+.conclusion-box h3 {
+    color: var(--accent-purple);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+}
+
+.conclusion-text {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-xl);
+}
+
+.conclusion-text strong {
+    color: var(--accent-purple);
+    font-weight: 700;
+}
+
+.final-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.final-stat {
+    text-align: center;
+    padding: var(--space-md);
+    background: var(--glass-bg);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    transition: all var(--transition-normal);
+}
+
+.final-stat:hover {
+    transform: translateY(-3px);
+}
+
+.final-stat .number {
+    display: block;
+    font-size: var(--text-emphasis);
+    color: var(--success-color);
+    font-weight: 700;
+    font-family: var(--font-primary);
+    margin-bottom: var(--space-xs);
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+}
+
+.final-stat .label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+    .tech-items, .challenges-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .players-overview, .regulatory-overview {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .insights-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .key-stats, .final-stats {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .comparison-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--space-sm);
+    }
+    
+    .pipeline-stats, .opportunity-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .roadmap-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
 }
