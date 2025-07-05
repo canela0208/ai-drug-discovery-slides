@@ -1,6 +1,7 @@
 # 🧬 AI 신약 타겟 발굴 프레젠테이션
 
-> **혁신적 기술과 미래 전망을 담은 인터랙티브 슬라이드 프레젠테이션**
+> **github pages test page**
+[slide page](https://fourmodern.github.io/ai-drug-discovery-slides/)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Made with Love](https://img.shields.io/badge/Made%20with-❤️-red.svg)](https://github.com)
