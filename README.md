@@ -43,7 +43,7 @@ AI를 활용한 신약 타겟 발굴의 현황과 미래 전망을 다루는 **1
 
 ```bash
 # 프로젝트 클론
-git clone https://github.com/your-username/ai-drug-discovery-slides.git
+git clone https://github.com/fourmodern/ai-drug-discovery-slides.git
 cd ai-drug-discovery-slides
 
 # 로컬 서버 실행
