@@ -165,7 +165,7 @@ ait/
 
 - **프로젝트 링크**: [https://github.com/your-username/ai-drug-discovery-slides](https://github.com/fourmodern/ai-drug-discovery-slides)
 - **이슈 리포트**: [Issues](https://github.com/your-username/ai-drug-discovery-slides/issues)
-- **기능 요청**: [Feature Requests](https://github.com/your-username/ai-drug-discovery-slides/issues/new?template=feature_request.md)
+- **기능 요청**: [Feature Requests](https://github.com/fourmodern/ai-drug-discovery-slides/issues/new?template=feature_request.md)
 
 ## 🙏 감사의 말
 
